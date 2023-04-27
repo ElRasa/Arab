@@ -11,7 +11,7 @@ from telethon.errors import BotResponseTimeoutError
 from telethon.events import CallbackQuery
 from telethon.utils import get_attributes
 from wget import download
-from Arab import iqthon
+from Arab import Ve_m1
 from ..Config import Config
 from ..core import check_owner, pool
 from ..core.logger import logging
@@ -32,11 +32,11 @@ BASE_YT_URL = "https://www.youtube.com/watch?v="
 YOUTUBE_REGEX = re.compile(
     r"(?:youtube\.com|youtu\.be)/(?:[\w-]+\?v=|embed/|v/|shorts/)?([\w-]{11})"
 )
-PATH = "./iqthon/sql_klanr/ytsearch.json"
+PATH = "./Ve_m1/sql_klanr/ytsearch.json"
 plugin_category = "bot"
 
 
-@iqthon.iq_cmd(
+@Ve_m1.iq_cmd(
     pattern="iytdl(?:\s|$)([\s\S]*)",
     command=("iytdl", plugin_category),
     info={
@@ -79,7 +79,7 @@ async def iytdl_inline(event):
         await catevent.edit("`Sorry!. Can't find any results`")
 
 
-@iqthon.tgbot.on(
+@Ve_m1.tgbot.on(
     CallbackQuery(
         data=re.compile(b"^ytdl_download_(.*)_([\d]+|mkv|mp4|mp3)(?:_(a|v))?")
     )
@@ -174,7 +174,7 @@ async def ytdl_download_callback(c_q: CallbackQuery):  # sourcery no-metrics
     )
 
 
-@iqthon.tgbot.on(
+@Ve_m1.tgbot.on(
     CallbackQuery(data=re.compile(b"^ytdl_(listall|back|next|detail)_([a-z0-9]+)_(.*)"))
 )
 @check_owner

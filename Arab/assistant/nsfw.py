@@ -4,7 +4,7 @@ from telethon import Button
 from telethon.errors import MessageNotModifiedError
 from telethon.events import CallbackQuery
 
-from Arab import iqthon
+from Arab import Ve_m1
 
 from ..Config import Config
 from ..core.logger import logging
@@ -12,7 +12,7 @@ from ..core.logger import logging
 LOGS = logging.getLogger(__name__)
 
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(r"^age_verification_true")))
+@Ve_m1.tgbot.on(CallbackQuery(data=re.compile(r"^age_verification_true")))
 async def age_verification_true(event: CallbackQuery):
     u_id = event.query.user_id
     if u_id != Config.OWNER_ID and u_id not in Config.SUDO_USERS:
@@ -37,7 +37,7 @@ async def age_verification_true(event: CallbackQuery):
         pass
 
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(r"^age_verification_false")))
+@Ve_m1.tgbot.on(CallbackQuery(data=re.compile(r"^age_verification_false")))
 async def age_verification_false(event: CallbackQuery):
     u_id = event.query.user_id
     if u_id != Config.OWNER_ID and u_id not in Config.SUDO_USERS:
@@ -62,7 +62,7 @@ async def age_verification_false(event: CallbackQuery):
         pass
 
 
-@iqthon.tgbot.on(CallbackQuery(data=re.compile(r"^chg_of_decision_")))
+@Ve_m1.tgbot.on(CallbackQuery(data=re.compile(r"^chg_of_decision_")))
 async def chg_of_decision_(event: CallbackQuery):
     u_id = event.query.user_id
     if u_id != Config.OWNER_ID and u_id not in Config.SUDO_USERS:
