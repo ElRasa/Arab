@@ -1,7 +1,7 @@
 import asyncio
 from datetime import datetime
 from telethon.tl import functions, types
-from Arab import iqthon
+from Arab import Ve_m1
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
@@ -27,7 +27,7 @@ sleeping = gvarstatus("OR_SLEEP") or "وضع النائم"
 
 
 AFK_ = AFK()
-@iqthon.iq_cmd(outgoing=True, edited=False)
+@Ve_m1.iq_cmd(outgoing=True, edited=False)
 async def set_not_afk(event):
     if AFK_.afk_on is False:
         return
@@ -60,7 +60,7 @@ async def set_not_afk(event):
         AFK_.afk_on = False
         if BOTLOG:
             await event.client.send_message(                BOTLOG_CHATID,                "#وضع النائم \nتوقف\n"                + "تم الغاء وضع النائم .\nبسبب الرد على الرسائل "                + endtime                + "`",            )
-@iqthon.iq_cmd(    incoming=True, func=lambda e: bool(e.mentioned or e.is_private), edited=False)
+@Ve_m1.iq_cmd(    incoming=True, func=lambda e: bool(e.mentioned or e.is_private), edited=False)
 async def on_afk(event):  # sourcery no-metrics
     if AFK_.afk_on is False:
         return
@@ -130,7 +130,7 @@ async def on_afk(event):  # sourcery no-metrics
         resalt += f"\n<b>⌔︙ رابـط الـرسالـة 🔗  : </b><a href = 'https://t.me/c/{hmm.id}/{event.message.id}'> الرابط</a>"
         if not event.is_private:
             await event.client.send_message(                Config.PM_LOGGER_GROUP_ID,                resalt,                parse_mode="html",                link_preview=False,            )
-@iqthon.iq_cmd(    pattern=f"{sleeping}(?:\s|$)([\s\S]*)",)
+@Ve_m1.iq_cmd(    pattern=f"{sleeping}(?:\s|$)([\s\S]*)",)
 async def _(event):
     AFK_.USERAFK_ON = {}
     AFK_.afk_time = None

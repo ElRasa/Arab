@@ -1,8 +1,8 @@
 import html
-from Arab import iqthon
+from Arab import Ve_m1
 from ..core.managers import edit_or_reply
 from ..sql_helper import warns_sql as sql
-@iqthon.on(admin_cmd(pattern="تحذير(?:\s|$)([\s\S]*)"))
+@Ve_m1.on(admin_cmd(pattern="تحذير(?:\s|$)([\s\S]*)"))
 async def _(event):
     warn_reason = event.pattern_match.group(1)
     if not warn_reason:
@@ -23,7 +23,7 @@ async def _(event):
         if warn_reason:
             reply += "\nسبب التحذير :\n{}".format(html.escape(warn_reason))
     await edit_or_reply(event, reply)
-@iqthon.on(admin_cmd(pattern="عدد التحذيرات"))
+@Ve_m1.on(admin_cmd(pattern="عدد التحذيرات"))
 async def _(event):
     reply_message = await event.get_reply_message()
     result = sql.get_warns(reply_message.sender_id, event.chat_id)
@@ -38,7 +38,7 @@ async def _(event):
     text += "\r\n"
     text += reasons
     await event.edit(text)
-@iqthon.on(admin_cmd(pattern="ا(عاده)?التحذيرات$"))
+@Ve_m1.on(admin_cmd(pattern="ا(عاده)?التحذيرات$"))
 async def _(event):
     reply_message = await event.get_reply_message()
     sql.reset_warns(reply_message.sender_id, event.chat_id)

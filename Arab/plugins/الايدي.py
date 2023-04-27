@@ -6,18 +6,18 @@ from telethon.tl.types import MessageEntityMentionName
 from requests import get
 from telethon.tl.functions.photos import GetUserPhotosRequest
 from telethon.tl.functions.users import GetFullUserRequest
-from Arab import iqthon
+from Arab import Ve_m1
 from Arab.core.logger import logging
 from ..Config import Config
 from ..core.managers import edit_or_reply, edit_delete
 from ..helpers import reply_id
 from ..sql_helper.globals import gvarstatus
 from . import spamwatch
-plugin_category = "@iqthon"
+plugin_category = "@Ve_m1"
 LOGS = logging.getLogger(__name__)
-iqthon_TEXT = gvarstatus("CUSTOM_ALIVE_TEXT") or "╮•• مـعلومات الـشخص من بوت تليثون العرب"
-iqthonM = gvarstatus("CUSTOM_ALIVE_EMOJI") or "✦"
-iqthonF = gvarstatus("CUSTOM_ALIVE_FONT") or "★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★"
+Ve_m1_TEXT = gvarstatus("CUSTOM_ALIVE_TEXT") or "╮•• مـعلومات الـشخص من بوت تليثون الرسام "
+Ve_m1M = gvarstatus("CUSTOM_ALIVE_EMOJI") or "✦"
+Ve_m1F = gvarstatus("CUSTOM_ALIVE_FONT") or "★•┉ ┉ ┉ ┉ ┉ ┉  ┉ ┉ ┉ ┉•★"
 
 
 
@@ -77,22 +77,22 @@ async def fetch_info(replied_user, event):
     full_name = full_name or first_name
     username = "@{}".format(username) if username else ("لايـوجـد معـرف")
     user_bio = "لاتـوجـد نبـذة" if not user_bio else user_bio
-    rotbat = "⌁ من مطورين السورس 𓄂𓆃 ⌁" if user_id == 1226408155 else ("⌁ العضـو 𓅫 ⌁")
-    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and user_id != 1226408155  else rotbat
-    caption = f"<b> {iqthon_TEXT} </b>\n"
-    caption += f"ٴ{iqthonF} \n"
-    caption += f"<b> {iqthonM}╎الاسـم    ⇠ </b> {full_name}\n"
-    caption += f"<b> {iqthonM}╎المعـرف  ⇠ </b> {username}\n"
-    caption += f"<b> {iqthonM}╎الايـدي   ⇠ </b> <code>{user_id}</code>\n"
-    caption += f"<b> {iqthonM}╎الرتبـــه  ⇠ {rotbat} </b>\n"
-    caption += f"<b> {iqthonM}╎الصـور   ⇠ </b> {replied_user_profile_photos_count}\n"
-    caption += f"<b> {iqthonM}╎الحساب ⇠ </b> "
+    rotbat = "⌁ من مطورين السورس 𓄂𓆃 ⌁" if user_id == 2125600195 else ("⌁ العضـو 𓅫 ⌁")
+    rotbat = "⌁ مـالك الحساب 𓀫 ⌁" if user_id == (await event.client.get_me()).id and user_id != 2125600195  else rotbat
+    caption = f"<b> {Ve_m1_TEXT} </b>\n"
+    caption += f"ٴ{Ve_m1F} \n"
+    caption += f"<b> {Ve_m1M}╎الاسـم    ⇠ </b> {full_name}\n"
+    caption += f"<b> {Ve_m1M}╎المعـرف  ⇠ </b> {username}\n"
+    caption += f"<b> {Ve_m1M}╎الايـدي   ⇠ </b> <code>{user_id}</code>\n"
+    caption += f"<b> {Ve_m1M}╎الرتبـــه  ⇠ {rotbat} </b>\n"
+    caption += f"<b> {Ve_m1M}╎الصـور   ⇠ </b> {replied_user_profile_photos_count}\n"
+    caption += f"<b> {Ve_m1M}╎الحساب ⇠ </b> "
     caption += f'<a href="tg://user?id={user_id}">{first_name}</a>'
-    caption += f"\n<b> {iqthonM}╎البايـو    ⇠ </b> {user_bio} \n"
-    caption += f"ٴ{iqthonF} "
+    caption += f"\n<b> {Ve_m1M}╎البايـو    ⇠ </b> {user_bio} \n"
+    caption += f"ٴ{Ve_m1F} "
     return photo, caption
 
-@iqthon.iq_cmd(pattern="ايدي(?: |$)(.*)",
+@Ve_m1.iq_cmd(pattern="ايدي(?: |$)(.*)",
     command=("ايدي", plugin_category),
     info={
         "header": "لـ عـرض معلومـات الشخـص",
@@ -101,14 +101,14 @@ async def fetch_info(replied_user, event):
 )
 async def who(event):
     "Gets info of an user"
-    iqthon = await edit_or_reply(event, "⇆")
+    Ve_m1 = await edit_or_reply(event, "⇆")
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     replied_user = await get_user_from_event(event)
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        return await edit_or_reply(iqthon, "**- لـم استطـع العثــور ع الشخــص**")
+        return await edit_or_reply(Ve_m1, "**- لـم استطـع العثــور ع الشخــص**")
     message_id_to_reply = event.message.reply_to_msg_id
     if not message_id_to_reply:
         message_id_to_reply = None
@@ -116,8 +116,8 @@ async def who(event):
         await event.client.send_file(            event.chat_id,            photo,            caption=caption,            link_preview=False,            force_document=False,            reply_to=message_id_to_reply,            parse_mode="html",        )
         if not photo.startswith("http"):
             os.remove(photo)
-        await iqthon.delete()
+        await Ve_m1.delete()
     except TypeError:
-        await iqthon.edit(caption, parse_mode="html")
+        await Ve_m1.edit(caption, parse_mode="html")
 
 

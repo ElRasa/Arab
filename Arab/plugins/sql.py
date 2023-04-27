@@ -1,7 +1,7 @@
 import asyncio
 from datetime import datetime
 from telethon.tl import functions, types
-from Arab import iqthon
+from Arab import Ve_m1
 from ..Config import Config
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
@@ -23,7 +23,7 @@ class AFK:
         self.sql_on = False
 
 AFK_ = AFK()
-@iqthon.iq_cmd(outgoing=True, edited=False)
+@Ve_m1.iq_cmd(outgoing=True, edited=False)
 async def set_not_sql(event):
     if AFK_.sql_on is False:
         return
@@ -57,7 +57,7 @@ async def set_not_sql(event):
         if BOTLOG:
             await event.client.send_message(BOTLOG_CHATID, "#AFKFALSE \n`Set AFK mode to False\n" + "Back alive! No Longer afk.\nWas afk for " + endtime )
 
-@iqthon.iq_cmd(incoming=True, func=lambda e: bool(e.mentioned or e.is_private), edited=False)
+@Ve_m1.iq_cmd(incoming=True, func=lambda e: bool(e.mentioned or e.is_private), edited=False)
 async def on_sql(event):  # sourcery no-metrics
     if AFK_.sql_on is False:
         return

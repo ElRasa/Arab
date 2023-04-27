@@ -5,7 +5,7 @@ from telethon.tl import functions, types
 from telethon.tl.functions.messages import GetStickerSetRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from telethon.utils import get_display_name
-from Arab import iqthon
+from Arab import Ve_m1
 from ..core.managers import edit_delete, edit_or_reply
 from ..helpers.tools import media_type
 from ..helpers.utils import _catutils
@@ -86,7 +86,7 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
             )
 
 
-@iqthon.iq_cmd(pattern="تكرار حزمه الملصقات$",)
+@Ve_m1.iq_cmd(pattern="تكرار حزمه الملصقات$",)
 async def stickerpack_spam(event):
     reply = await event.get_reply_message()
     if not reply or media_type(reply) is None or media_type(reply) != "Sticker":
@@ -122,7 +122,7 @@ async def stickerpack_spam(event):
         await event.client.send_file(BOTLOG_CHATID, reqd_sticker_set.documents[0])
 
 
-@iqthon.iq_cmd(    pattern="تكرار_احرف ([\s\S]*)",)
+@Ve_m1.iq_cmd(    pattern="تكرار_احرف ([\s\S]*)",)
 async def tmeme(event):
     cspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = cspam.replace(" ", "")
@@ -139,7 +139,7 @@ async def tmeme(event):
             await event.client.send_message(                BOTLOG_CHATID,                "#تكرار احرف\n"                + f"تكرار احرف {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat with : `{message}`",            )
 
 
-@iqthon.iq_cmd(    pattern="تكرار_كلمه ([\s\S]*)",)
+@Ve_m1.iq_cmd(    pattern="تكرار_كلمه ([\s\S]*)",)
 async def tmeme(event):
     wspam = str("".join(event.text.split(maxsplit=1)[1:]))
     message = wspam.split()
@@ -156,24 +156,24 @@ async def tmeme(event):
             await event.client.send_message(                BOTLOG_CHATID,                "#WSPAM\n"                + f"Word Spam was executed successfully in {get_display_name(await event.get_chat())}(`{event.chat_id}`) chat with : `{message}`",            )
 
 
-@iqthon.iq_cmd(pattern=f"{MUQT} ([\s\S]*)",)
+@Ve_m1.iq_cmd(pattern=f"{MUQT} ([\s\S]*)",)
 async def spammer(event):
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
     try:
         sleeptimet = sleeptimem = float(input_str[0])
     except Exception:
-        return await edit_delete(            event, "عذرا طريقه كتابة الأمر خطأ - شرح الارسال الوقتي او مؤقت للكروبات هنا : https://t.me/L3LL3/4483"        )
+        return await edit_delete(            event, "عذرا طريقه كتابة الأمر خطأ - شرحه الارسال الوقتي او مؤقت للكروبات هنا : https://t.me/Peee_eq/4483"        )
     cat = input_str[1:]
     try:
         int(cat[0])
     except Exception:
-        return await edit_delete(            event, "عذرا طريقه كتابة الأمر خطأ - شرح الارسال الوقتي او مؤقت للكروبات هنا : https://t.me/L3LL3/4483"        )
+        return await edit_delete(            event, "عذرا طريقه كتابة الأمر خطأ - شرح الارسال الوقتي او مؤقت للكروبات هنا : https://t.me/Peee_eq/4483"        )
     await event.delete()
     addgvar("spamwork", True)
     await spam_function(event, reply, cat, sleeptimem, sleeptimet, DelaySpam=True)
    
-@iqthon.iq_cmd(pattern=f"{UNMUQT} ?(.*)",)
+@Ve_m1.iq_cmd(pattern=f"{UNMUQT} ?(.*)",)
 async def spammer(event):
     reply = await event.get_reply_message()
     await event.delete()

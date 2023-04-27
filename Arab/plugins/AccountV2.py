@@ -70,7 +70,7 @@ from telethon.tl.types import Channel, Chat, InputPhoto, User
 from telethon.errors import ChatAdminRequiredError
 from ..sql_helper.GrChhelper import Auto_ChGR, deletAutoChGR, getGrChAuto
 from telethon.errors import FloodWaitError, ChannelInvalidError
-from Arab import iqthon
+from Arab import Ve_m1
 from Arab.core.logger import logging
 from ..Config import Config
 from ..core.managers import edit_delete, edit_or_reply
@@ -97,7 +97,7 @@ from PIL import Image, ImageDraw, ImageFont
 import PIL.ImageOps
 from telethon import functions
 from telethon.sync import errors
-from . import AUTONAME, BOTLOG, BOTLOG_CHATID, DEFAULT_BIO, _catutils, edit_delete, iqthon, logging, spamwatch    
+from . import AUTONAME, BOTLOG, BOTLOG_CHATID, DEFAULT_BIO, _catutils, edit_delete, Ve_m1, logging, spamwatch    
 def inline_mention(user):
     full_name = user_full_name(user) or "No Name"
     return f"{full_name}"
@@ -105,20 +105,20 @@ def user_full_name(user):
     names = [user.first_name]
     names = [i for i in list(names) if i]
     return " ".join(names)
-STAT_INDICATION = "**🝳 ⦙   جـاري جـمـع الإحصـائيـات ، انتـظـر 🔄**"
-CHANNELS_STR = "**🝳 ⦙   قائمة القنوات التي أنت فيها موجودة هنا\n\n"
-CHANNELS_ADMINSTR = "**🝳 ⦙  قائمة القنوات التي تديرها هنا **\n\n"
-CHANNELS_OWNERSTR = "**🝳 ⦙  قائمة القنوات التي تمتلك فيها هنا **\n\n"
-GROUPS_STR = "**🝳 ⦙  قائمة المجموعات التي أنت فيها موجود هنا **\n\n"
-GROUPS_ADMINSTR = "**🝳 ⦙  قائمة المجموعات التي تكون مسؤولاً فيها هنا **\n\n"
-GROUPS_OWNERSTR = "**🝳 ⦙  قائمة المجموعات التي تمتلك فيها هنا **\n\n"
-INVALID_MEDIA = "**🝳 ⦙  إمتداد هذه الصورة غير صالح  ❌**"
-PP_CHANGED = "**🝳 ⦙  تم تغير صورة حسابك بنجاح  ✅**"
-PP_TOO_SMOL = "**🝳 ⦙  هذه الصورة صغيرة جدًا قم بإختيار صورة أخرى  ⚠️**"
-PP_ERROR = "**🝳 ⦙  حدث خطأ أثناء معالجة الصورة  ⚠️**"
-BIO_SUCCESS = "**🝳 ⦙  تم تغيير بايو حسابك بنجاح  ✅**"
+STAT_INDICATION = "**☣ ⦙   جـاري جـمـع الإحصـائيـات ، انتـظـر 🔄**"
+CHANNELS_STR = "**☣ ⦙   قائمة القنوات التي أنت فيها موجودة هنا\n\n"
+CHANNELS_ADMINSTR = "**☣ ⦙  قائمة القنوات التي تديرها هنا **\n\n"
+CHANNELS_OWNERSTR = "**☣ ⦙  قائمة القنوات التي تمتلك فيها هنا **\n\n"
+GROUPS_STR = "**☣ ⦙  قائمة المجموعات التي أنت فيها موجود هنا **\n\n"
+GROUPS_ADMINSTR = "**☣ ⦙  قائمة المجموعات التي تكون مسؤولاً فيها هنا **\n\n"
+GROUPS_OWNERSTR = "**☣ ⦙  قائمة المجموعات التي تمتلك فيها هنا **\n\n"
+INVALID_MEDIA = "**☣ ⦙  إمتداد هذه الصورة غير صالح  ❌**"
+PP_CHANGED = "**☣ ⦙  تم تغير صورة حسابك بنجاح  ✅**"
+PP_TOO_SMOL = "**☣ ⦙  هذه الصورة صغيرة جدًا قم بإختيار صورة أخرى  ⚠️**"
+PP_ERROR = "**☣ ⦙  حدث خطأ أثناء معالجة الصورة  ⚠️**"
+BIO_SUCCESS = "**☣ ⦙  تم تغيير بايو حسابك بنجاح  ✅**"
 
-iqthonfont = gvarstatus("DEFAULT_PIC") or "Arab/sql_helper/IQTHONIMOGE.ttf"
+Ve_m1font = gvarstatus("DEFAULT_PIC") or "Arab/sql_helper/Ve_m1IMOGE.ttf"
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
 autopic_path = os.path.join(os.getcwd(), "Arab", "original_pic.png")
 digitalpic_path = os.path.join(os.getcwd(), "Arab", "digital_pic.png")
@@ -133,9 +133,9 @@ OR_AUTOBIO = gvarstatus("OR_AUTOBIO") or "نبذه وقتيه"
 AUTOGRCH = ""
 FONTGRCH1 = "1234567890"
 FONTGRCH2 = gvarstatus("FONTGRCH") or "𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫𝟢"
-NAME_OK = "**🝳 ⦙  تم تغيير اسم حسابك بنجاح  ✅**"
-USERNAME_SUCCESS = "**🝳 ⦙  تم تغيير معرّف حسابك بنجاح  ✅**"
-USERNAME_TAKEN = "**🝳 ⦙  هذا المعرّف مستخدم  ❌**"
+NAME_OK = "**☣ ⦙  تم تغيير اسم حسابك بنجاح  ✅**"
+USERNAME_SUCCESS = "**☣ ⦙  تم تغيير معرّف حسابك بنجاح  ✅**"
+USERNAME_TAKEN = "**☣ ⦙  هذا المعرّف مستخدم  ❌**"
 plugin_category = "tools"
 DEFAULTUSER = gvarstatus("FIRST_NAME") or ALIVE_NAME
 DEFAULTUSERBIO = gvarstatus("DEFAULT_BIO") or "الحمد الله"
@@ -160,19 +160,19 @@ async def digitalpicloop():
         current_time = datetime.now().strftime("%I:%M")
         img = Image.open(autophoto_path)
         drawn_text = ImageDraw.Draw(img)
-        fnt = ImageFont.truetype(f"{iqthonfont}", 200)
+        fnt = ImageFont.truetype(f"{Ve_m1font}", 200)
         drawn_text.text((300, 400), current_time, font=fnt, fill=(255, 255, 255))
         img.save(autophoto_path)
-        file = await iqthon.upload_file(autophoto_path)
+        file = await Ve_m1.upload_file(autophoto_path)
         try:
             if i > 0:
-                await iqthon(
+                await Ve_m1(
                     functions.photos.DeletePhotosRequest(
-                        await iqthon.get_profile_photos("me", limit=1)
+                        await Ve_m1.get_profile_photos("me", limit=1)
                     )
                 )
             i += 1
-            await iqthon(functions.photos.UploadProfilePhotoRequest(file))
+            await Ve_m1(functions.photos.UploadProfilePhotoRequest(file))
             os.remove(autophoto_path)
             await asyncio.sleep(60)
         except BaseException:
@@ -196,7 +196,7 @@ async def crop(imagefile, endname, x):
     image = Image.open(imagefile)
     inverted_image = PIL.ImageOps.crop(image, border=x)
     inverted_image.save(endname)
-@iqthon.on(admin_cmd(pattern="احصائيات حسابي(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern="احصائيات حسابي(?: |$)(.*)"))
 async def stats(event):  
     cat = await edit_or_reply(event, STAT_INDICATION)
     start_time = time.time()
@@ -240,20 +240,20 @@ async def stats(event):
     stop_time = time.time() - start_time
     full_name = inline_mention(await event.client.get_me())
     response = f"📌 **• ⚜️ |  احصائيات حسـابك العـامة لـ {full_name} 📊** \n"
-    response += f"**🝳 ⦙  الدردشات الخاصة 🏷️  :** {private_chats} \n"
-    response += f"**🝳 ⦙   الاشـخاص 🚹 : {private_chats - bots}` \n"
-    response += f"**🝳 ⦙   الـبوتـات 🤖 : {bots}` **\n"
-    response += f"**🝳 ⦙   عـدد المجـموعـات 🚻 :** `{groups}` \n"
-    response += f"**🝳 ⦙   عـدد القنـوات  🚻 :** `{broadcast_channels}` \n"
-    response += f"**🝳 ⦙   عـدد المجـموعات التـي تكـون فيها ادمـن  🛂 :** `{admin_in_groups}` \n"
-    response += f"**🝳 ⦙   عـدد المجموعات التـي أنـشأتـها  🛃** : `{creator_in_groups}` \n"
-    response += f"**🝳 ⦙   عـدد القنوات التـي تكـون فيها ادمـن 📶 : `{admin_in_broadcast_channels}` **\n"
-    response += f"**🝳 ⦙   حقوق المسؤول في القنوات  🛂 : `{admin_in_broadcast_channels - creator_in_channels}` **\n"
+    response += f"**☣ ⦙  الدردشات الخاصة 🏷️  :** {private_chats} \n"
+    response += f"**☣ ⦙   الاشـخاص 🚹 : {private_chats - bots}` \n"
+    response += f"**☣ ⦙   الـبوتـات 🤖 : {bots}` **\n"
+    response += f"**☣ ⦙   عـدد المجـموعـات 🚻 :** `{groups}` \n"
+    response += f"**☣ ⦙   عـدد القنـوات  🚻 :** `{broadcast_channels}` \n"
+    response += f"**☣ ⦙   عـدد المجـموعات التـي تكـون فيها ادمـن  🛂 :** `{admin_in_groups}` \n"
+    response += f"**☣ ⦙   عـدد المجموعات التـي أنـشأتـها  🛃** : `{creator_in_groups}` \n"
+    response += f"**☣ ⦙   عـدد القنوات التـي تكـون فيها ادمـن 📶 : `{admin_in_broadcast_channels}` **\n"
+    response += f"**☣ ⦙   حقوق المسؤول في القنوات  🛂 : `{admin_in_broadcast_channels - creator_in_channels}` **\n"
     response += f"**عـدد المحـادثـات الغيـر مقـروء 📄 :** {unread} \n"
     response += f"**عـدد الـتاكـات الغيـر مقـروء 📌 :** {unread_mentions} \n"
-    response += f"**🝳 ⦙   استغرق الأمر  🔍  :** `{stop_time:.02f}` ثانيه \n"
+    response += f"**☣ ⦙   استغرق الأمر  🔍  :** `{stop_time:.02f}` ثانيه \n"
     await cat.edit(response)
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص1$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص1$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -261,7 +261,7 @@ async def iqvois(vois):
     if iqvois1:
         await vois.client.send_file(vois.chat_id, iqvois1, reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص2$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص2$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -269,7 +269,7 @@ async def iqvois(vois):
     if iqvois2:
         await vois.client.send_file(vois.chat_id, iqvois2, reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص3$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص3$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -277,7 +277,7 @@ async def iqvois(vois):
     if iqvois3:
         await vois.client.send_file(vois.chat_id, iqvois3, reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="اطار ?(.*)"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="اطار ?(.*)"))
 async def memes(mafia):
     reply = await mafia.get_reply_message()
     if not (reply and (reply.media)):
@@ -358,7 +358,7 @@ async def memes(mafia):
     for files in (mafiasticker, meme_file):
         if files and os.path.exists(files):
             os.remove(files)
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص4$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص4$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -366,7 +366,7 @@ async def iqvois(vois):
     if iqvois4:
         await vois.client.send_file(vois.chat_id, iqvois4, reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="قلب الصوره$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="قلب الصوره$"))
 async def memes(mafia):
     reply = await mafia.get_reply_message()
     if not (reply and (reply.media)):
@@ -435,7 +435,7 @@ async def memes(mafia):
             os.remove(files)
 
 
-@iqthon.on(admin_cmd(outgoing=True, pattern="فلتر رصاصي$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="فلتر رصاصي$"))
 async def memes(mafia):
     reply = await mafia.get_reply_message()
     if not (reply and (reply.media)):
@@ -502,11 +502,11 @@ async def memes(mafia):
     for files in (mafiasticker, meme_file):
         if files and os.path.exists(files):
             os.remove(files)
-@iqthon.on(events.NewMessage(outgoing=True, pattern='.فك المحظورين'))
+@Ve_m1.on(events.NewMessage(outgoing=True, pattern='.فك المحظورين'))
 async def UnBlockList(event):
 
     # GET BLOCKED USERS LIST
-    list = await iqthon(GetBlockedRequest(offset=0, limit=1000000))
+    list = await Ve_m1(GetBlockedRequest(offset=0, limit=1000000))
 
     if len(list.blocked) == 0 :
         order_reply = await event.edit(f'[ ! ] **لم تقم بحظر أي شخص أصلا**')
@@ -516,7 +516,7 @@ async def UnBlockList(event):
         for user in list.blocked :
 
             # UNBLOCK > USER OR BOT
-            UnBlock = await iqthon(UnblockRequest(id=int(user.peer_id.user_id)))
+            UnBlock = await Ve_m1(UnblockRequest(id=int(user.peer_id.user_id)))
             unblocked_count += 1
 
             order_reply = await event.edit(f'[ ~ ] **جاري .فك المحظورين من حسابك** {round((unblocked_count * 100) / len(list.blocked), 2)}%')
@@ -527,7 +527,7 @@ async def UnBlockList(event):
 c = requests.session()
 milerbot = f'{Botcompilation}'
 iqklanr = ['yes']
-@iqthon.on(admin_cmd(outgoing=True, pattern="زوم ?(.*)"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="زوم ?(.*)"))
 async def memes(mafia):
     reply = await mafia.get_reply_message()
     if not (reply and (reply.media)):
@@ -601,7 +601,7 @@ async def memes(mafia):
     for files in (mafiasticker, meme_file):
         if files and os.path.exists(files):
             os.remove(files)
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص5$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص5$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -609,7 +609,7 @@ async def iqvois(vois):
     if iqvois5:
         await vois.client.send_file(vois.chat_id, iqvois5, reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص6$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص6$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -617,7 +617,7 @@ async def iqvois(vois):
     if iqvois6:
         await vois.client.send_file(vois.chat_id, iqvois6, reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص7$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص7$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -625,7 +625,7 @@ async def iqvois(vois):
     if iqvois7:
         await vois.client.send_file(vois.chat_id, iqvois7, reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص8$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص8$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -633,7 +633,7 @@ async def iqvois(vois):
     if iqvois:
         await vois.client.send_file(vois.chat_id, iqvois, reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص9$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص9$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -642,7 +642,7 @@ async def iqvois(vois):
         await vois.client.send_file(vois.chat_id, iqvois9 , reply_to=Ti)
         await vois.delete()
 
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص10$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص10$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -650,7 +650,7 @@ async def iqvois(vois):
     if iqvois10:
         await vois.client.send_file(vois.chat_id, iqvois10 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص11$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص11$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -658,7 +658,7 @@ async def iqvois(vois):
     if iqvois11 :
         await vois.client.send_file(vois.chat_id, iqvois11 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص12$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص12$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -666,7 +666,7 @@ async def iqvois(vois):
     if iqvois12:
         await vois.client.send_file(vois.chat_id, iqvois12 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص13$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص13$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -674,7 +674,7 @@ async def iqvois(vois):
     if iqvois13:
         await vois.client.send_file(vois.chat_id, iqvois13 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص14$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص14$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -682,7 +682,7 @@ async def iqvois(vois):
     if iqvois14:
         await vois.client.send_file(vois.chat_id, iqvois14 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص15$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص15$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -690,7 +690,7 @@ async def iqvois(vois):
     if iqvois15:
         await vois.client.send_file(vois.chat_id, iqvois15 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص16$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص16$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -698,7 +698,7 @@ async def iqvois(vois):
     if iqvois16:
         await vois.client.send_file(vois.chat_id, iqvois16 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص17$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص17$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -706,7 +706,7 @@ async def iqvois(vois):
     if iqvois17:
         await vois.client.send_file(vois.chat_id, iqvois17 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص18$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص18$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -714,7 +714,7 @@ async def iqvois(vois):
     if iqvois18:
         await vois.client.send_file(vois.chat_id, iqvois18 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص19$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص19$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -722,7 +722,7 @@ async def iqvois(vois):
     if iqvois19:
         await vois.client.send_file(vois.chat_id, iqvois19 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص20$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص20$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -730,7 +730,7 @@ async def iqvois(vois):
     if iqvois20:
         await vois.client.send_file(vois.chat_id, iqvois20 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص21$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص21$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -738,7 +738,7 @@ async def iqvois(vois):
     if iqvois21:
         await vois.client.send_file(vois.chat_id, iqvois21 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص22$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص22$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -746,7 +746,7 @@ async def iqvois(vois):
     if iqvois22:
         await vois.client.send_file(vois.chat_id, iqvois22 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص23$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص23$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -754,7 +754,7 @@ async def iqvois(vois):
     if iqvois23:
         await vois.client.send_file(vois.chat_id, iqvois23 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص24$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص24$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -762,7 +762,7 @@ async def iqvois(vois):
     if iqvois24:
         await vois.client.send_file(vois.chat_id, iqvois24 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص25$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص25$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -770,7 +770,7 @@ async def iqvois(vois):
     if iqvois25:
         await vois.client.send_file(vois.chat_id, iqvois25 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص26$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص26$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -778,7 +778,7 @@ async def iqvois(vois):
     if iqvois26:
         await vois.client.send_file(vois.chat_id, iqvois26 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص27$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص27$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -786,7 +786,7 @@ async def iqvois(vois):
     if iqvois27:
         await vois.client.send_file(vois.chat_id, iqvois27 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص28$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص28$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -794,7 +794,7 @@ async def iqvois(vois):
     if iqvois28:
         await vois.client.send_file(vois.chat_id, iqvois28 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص29$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص29$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -802,7 +802,7 @@ async def iqvois(vois):
     if iqvois29:
         await vois.client.send_file(vois.chat_id, iqvois29 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص30$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص30$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -810,7 +810,7 @@ async def iqvois(vois):
     if iqvois30:
         await vois.client.send_file(vois.chat_id, iqvois30 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص31$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص31$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -818,7 +818,7 @@ async def iqvois(vois):
     if iqvois31:
         await vois.client.send_file(vois.chat_id, iqvois31 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص32$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص32$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -826,7 +826,7 @@ async def iqvois(vois):
     if iqvois32:
         await vois.client.send_file(vois.chat_id, iqvois32 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص33$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص33$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -834,7 +834,7 @@ async def iqvois(vois):
     if iqvois33:
         await vois.client.send_file(vois.chat_id, iqvois33 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص34$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص34$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -842,7 +842,7 @@ async def iqvois(vois):
     if iqvois34:
         await vois.client.send_file(vois.chat_id, iqvois34 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص35$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص35$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -850,7 +850,7 @@ async def iqvois(vois):
     if iqvois35:
         await vois.client.send_file(vois.chat_id, iqvois35 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص36$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص36$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -858,7 +858,7 @@ async def iqvois(vois):
     if iqvois36:
         await vois.client.send_file(vois.chat_id, iqvois36 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص37$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص37$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -866,7 +866,7 @@ async def iqvois(vois):
     if iqvois37:
         await vois.client.send_file(vois.chat_id, iqvois37 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص38$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص38$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -874,7 +874,7 @@ async def iqvois(vois):
     if iqvois38:
         await vois.client.send_file(vois.chat_id, iqvois38 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص39$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص39$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -882,7 +882,7 @@ async def iqvois(vois):
     if iqvois39:
         await vois.client.send_file(vois.chat_id, iqvois39 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص40$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص40$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -890,7 +890,7 @@ async def iqvois(vois):
     if iqvois40:
         await vois.client.send_file(vois.chat_id, iqvois40 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص41$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص41$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -899,17 +899,17 @@ async def iqvois(vois):
         await vois.client.send_file(vois.chat_id, iqvois41 , reply_to=Ti)
         await vois.delete()
 
-@iqthon.on(admin_cmd(pattern="(تجميع النقاط|تجميع نقاط)"))
+@Ve_m1.on(admin_cmd(pattern="(تجميع النقاط|تجميع نقاط)"))
 async def _(event):
     if iqklanr[0] == "yes":
         await event.edit("**سيتم تجميع النقاط , قبل كل شي تأكد من انك قمت بلانظمام الى القنوات الاشتراك الاجباري للبوت لعدم حدوث اخطاء**")
-        channel_entity = await iqthon.get_entity(milerbot)
-        await iqthon.send_message(f'{Botcompilation}', '/start')
+        channel_entity = await Ve_m1.get_entity(milerbot)
+        await Ve_m1.send_message(f'{Botcompilation}', '/start')
         await asyncio.sleep(5)
-        msg0 = await iqthon.get_messages(f'{Botcompilation}', limit=1)
+        msg0 = await Ve_m1.get_messages(f'{Botcompilation}', limit=1)
         await msg0[0].click(2)
         await asyncio.sleep(5)
-        msg1 = await iqthon.get_messages(f'{Botcompilation}', limit=1)
+        msg1 = await Ve_m1.get_messages(f'{Botcompilation}', limit=1)
         await msg1[0].click(0)
 
         chs = 1
@@ -918,30 +918,30 @@ async def _(event):
                 break
             await asyncio.sleep(5)
 
-            list = await iqthon(GetHistoryRequest(peer=channel_entity, limit=1,
+            list = await Ve_m1(GetHistoryRequest(peer=channel_entity, limit=1,
                                                    offset_date=None, offset_id=0, max_id=0, min_id=0, add_offset=0, hash=0))
             msgs = list.messages[0]
             if msgs.message.find('لا يوجد قنوات في الوقت الحالي , قم يتجميع النقاط بطريقه مختلفه') != -1:
-                await iqthon.send_message(event.chat_id, f"**لاتوجد قنوات للبوت**")
+                await Ve_m1.send_message(event.chat_id, f"**لاتوجد قنوات للبوت**")
                 break
             url = msgs.reply_markup.rows[0].buttons[0].url
             try:
                 try:
-                    await iqthon(JoinChannelRequest(url))
+                    await Ve_m1(JoinChannelRequest(url))
                 except:
                     bott = url.split('/')[-1]
-                    await iqthon(ImportChatInviteRequest(bott))
-                msg2 = await iqthon.get_messages(f'{Botcompilation}', limit=1)
+                    await Ve_m1(ImportChatInviteRequest(bott))
+                msg2 = await Ve_m1.get_messages(f'{Botcompilation}', limit=1)
                 await msg2[0].click(text='تحقق')
                 chs += 1
-                await iqthon.send_message("me", f"تم الاشتراك في {chs} قناة")
+                await Ve_m1.send_message("me", f"تم الاشتراك في {chs} قناة")
             except:
-                await iqthon.send_message(event.chat_id, f"**خطأ حاول بعد 6 ساعات**")
+                await Ve_m1.send_message(event.chat_id, f"**خطأ حاول بعد 6 ساعات**")
                 break
-        await iqthon.send_message(event.chat_id, "**تم الانتهاء من التجميع !**")
+        await Ve_m1.send_message(event.chat_id, "**تم الانتهاء من التجميع !**")
 
 
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص42$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص42$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -949,7 +949,7 @@ async def iqvois(vois):
     if iqvois42:
         await vois.client.send_file(vois.chat_id, iqvois42 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص43$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص43$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -957,7 +957,7 @@ async def iqvois(vois):
     if iqvois43:
         await vois.client.send_file(vois.chat_id, iqvois43 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص44$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص44$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -965,7 +965,7 @@ async def iqvois(vois):
     if iqvois44:
         await vois.client.send_file(vois.chat_id, iqvois44 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص45$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص45$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -973,7 +973,7 @@ async def iqvois(vois):
     if iqvois45:
         await vois.client.send_file(vois.chat_id, iqvois45 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص46$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص46$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -981,7 +981,7 @@ async def iqvois(vois):
     if iqvois46:
         await vois.client.send_file(vois.chat_id, iqvois46 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص47$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص47$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -989,7 +989,7 @@ async def iqvois(vois):
     if iqvois47:
         await vois.client.send_file(vois.chat_id, iqvois47 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص48$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص48$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -997,7 +997,7 @@ async def iqvois(vois):
     if iqvois48:
         await vois.client.send_file(vois.chat_id, iqvois48 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص49$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص49$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1005,7 +1005,7 @@ async def iqvois(vois):
     if iqvois49:
         await vois.client.send_file(vois.chat_id, iqvois49 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص50$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص50$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1013,7 +1013,7 @@ async def iqvois(vois):
     if iqvois50:
         await vois.client.send_file(vois.chat_id, iqvois50 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(pattern="قائمه (جميع القنوات|قنوات اديرها|قنوات امتلكها)$"))
+@Ve_m1.on(admin_cmd(pattern="قائمه (جميع القنوات|قنوات اديرها|قنوات امتلكها)$"))
 async def stats(event):  
     catcmd = event.pattern_match.group(1)
     catevent = await edit_or_reply(event, STAT_INDICATION)
@@ -1058,7 +1058,7 @@ async def stats(event):
         await edit_or_reply(            catevent,
             output,
             caption=caption        )
-@iqthon.on(admin_cmd(pattern="قائمه (جميع المجموعات|مجموعات اديرها|مجموعات امتلكها)$"))
+@Ve_m1.on(admin_cmd(pattern="قائمه (جميع المجموعات|مجموعات اديرها|مجموعات امتلكها)$"))
 async def stats(event):  
     catcmd = event.pattern_match.group(1)
     catevent = await edit_or_reply(event, STAT_INDICATION)
@@ -1111,7 +1111,7 @@ async def stats(event):
             catevent,
             output,
             caption=caption        )
-@iqthon.iq_cmd(pattern="حفض كتابه$")
+@Ve_m1.iq_cmd(pattern="حفض كتابه$")
 async def saf(e):
     x = await e.get_reply_message()
     if not x:
@@ -1122,7 +1122,7 @@ async def saf(e):
         await e.client.send_message(e.sender_id, x)
     await eor(e, "تم حفظ الرسالة", time=5)
 
-@iqthon.iq_cmd(pattern="حفض توجيه$")
+@Ve_m1.iq_cmd(pattern="حفض توجيه$")
 async def saf(e):
     x = await e.get_reply_message()
     if not x:
@@ -1132,7 +1132,7 @@ async def saf(e):
     else:
         await x.forward_to(e.sender_id)
     await eor(e, "تم حفظ الرسالة.", time=5)
-@iqthon.on(admin_cmd(pattern="(الايدي|id)(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern="(الايدي|id)(?: |$)(.*)"))
 async def _(event):
     input_str = event.pattern_match.group(2)
     if input_str:
@@ -1142,32 +1142,32 @@ async def _(event):
             return await edit_delete(event, f"`{str(e)}`", 5)
         try:
             if p.first_name:
-                return await edit_or_reply(                    event, f"**🝳 ⦙   آيـدي المُستخدم 💠 :** `{input_str}` هـو `{p.id}`"                )
+                return await edit_or_reply(                    event, f"**☣ ⦙   آيـدي المُستخدم 💠 :** `{input_str}` هـو `{p.id}`"                )
         except Exception:
             try:
                 if p.title:
-                    return await edit_or_reply(                        event, f"**🝳 ⦙   آيـدي الدردشــــة 💠 :** `{p.title}` هـو `{p.id}` "                    )
+                    return await edit_or_reply(                        event, f"**☣ ⦙   آيـدي الدردشــــة 💠 :** `{p.title}` هـو `{p.id}` "                    )
             except Exception as e:
                 LOGS.info(str(e))
-        await edit_or_reply(event, "**🝳 ⦙   قُم بإدخال أسم مُستخدم أو الرد على المُستخدم ⚜️**")
+        await edit_or_reply(event, "**☣ ⦙   قُم بإدخال أسم مُستخدم أو الرد على المُستخدم ⚜️**")
     elif event.reply_to_msg_id:
         await event.get_input_chat()
         r_msg = await event.get_reply_message()
         if r_msg.media:
             bot_api_file_id = pack_bot_file_id(r_msg.media)
-            await edit_or_reply(                event,                f"**🝳 ⦙   آيـدي الدردشــــة  💠 : **`{str(event.chat_id)}` \n**🝳 ⦙   آيـدي المُستخدم  💠 : **`{str(r_msg.sender_id)}` \n**🝳 ⦙  آيـدي الميديـا  🆔 : **`{bot_api_file_id}`"            )
+            await edit_or_reply(                event,                f"**☣ ⦙   آيـدي الدردشــــة  💠 : **`{str(event.chat_id)}` \n**☣ ⦙   آيـدي المُستخدم  💠 : **`{str(r_msg.sender_id)}` \n**☣ ⦙  آيـدي الميديـا  🆔 : **`{bot_api_file_id}`"            )
         else:
-            await edit_or_reply(                event,                f"**🝳 ⦙   آيـدي الدردشــــة  💠 : **`{str(event.chat_id)}` 𖥻\n**🝳 ⦙   آيـدي المُستخدم  💠 : **`{str(r_msg.sender_id)}` "            )
+            await edit_or_reply(                event,                f"**☣ ⦙   آيـدي الدردشــــة  💠 : **`{str(event.chat_id)}` 𖥻\n**☣ ⦙   آيـدي المُستخدم  💠 : **`{str(r_msg.sender_id)}` "            )
 
-@iqthon.on(admin_cmd(pattern="وضع بايو(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern="وضع بايو(?: |$)(.*)"))
 async def _(event):
     bio = event.pattern_match.group(1)
     try:
         await event.client(functions.account.UpdateProfileRequest(about=bio))
-        await edit_delete(event, "**🝳 ⦙  تم تغيير البايو بنجاح  ✅**")
+        await edit_delete(event, "**☣ ⦙  تم تغيير البايو بنجاح  ✅**")
     except Exception as e:
-        await edit_or_reply(event, f"**🝳 ⦙  خطأ  ⚠️ :**\n`{str(e)}`")
-@iqthon.on(admin_cmd(pattern="وضع اسم(?: |$)(.*)"))
+        await edit_or_reply(event, f"**☣ ⦙  خطأ  ⚠️ :**\n`{str(e)}`")
+@Ve_m1.on(admin_cmd(pattern="وضع اسم(?: |$)(.*)"))
 async def _(event):
     names = event.pattern_match.group(1)
     first_name = names
@@ -1177,10 +1177,10 @@ async def _(event):
     try:
         await event.client(
             functions.account.UpdateProfileRequest(                first_name=first_name, last_name=last_name            )        )
-        await edit_delete(event, "**🝳 ⦙  تم تغيير الاسم بنجاح  ✅**")
+        await edit_delete(event, "**☣ ⦙  تم تغيير الاسم بنجاح  ✅**")
     except Exception as e:
-        await edit_or_reply(event, f"**🝳 ⦙  خطأ  ⚠️ :**\n`{str(e)}`")
-@iqthon.on(admin_cmd(pattern="وضع صوره(?: |$)(.*)"))
+        await edit_or_reply(event, f"**☣ ⦙  خطأ  ⚠️ :**\n`{str(e)}`")
+@Ve_m1.on(admin_cmd(pattern="وضع صوره(?: |$)(.*)"))
 async def _(event):
     reply_message = await event.get_reply_message()
     catevent = await edit_or_reply(        event, "**...**"    )
@@ -1193,12 +1193,12 @@ async def _(event):
         await catevent.edit(str(e))
     else:
         if photo:
-            await catevent.edit("**🝳 ⦙   أشترك @IQTHON **")
+            await catevent.edit("**☣ ⦙   أشترك @Ve_m1 **")
             if photo.endswith((".mp4", ".MP4")):
                 # https://t.me/tgbetachat/324694
                 size = os.stat(photo).st_size
                 if size > 2097152:
-                    await catevent.edit("**🝳 ⦙   يجب ان يكون الحجم اقل من 2 ميغا ✅**")
+                    await catevent.edit("**☣ ⦙   يجب ان يكون الحجم اقل من 2 ميغا ✅**")
                     os.remove(photo)
                     return
                 catpic = None
@@ -1210,9 +1210,9 @@ async def _(event):
                 await event.client(
                     functions.photos.UploadProfilePhotoRequest(                        file=catpic, video=catvideo, video_start_ts=0.01                   )                )
             except Exception as e:
-                await catevent.edit(f"**🝳 ⦙  خطأ  ⚠️ :**\n`{str(e)}`")
+                await catevent.edit(f"**☣ ⦙  خطأ  ⚠️ :**\n`{str(e)}`")
             else:
-                await edit_or_reply(                    catevent, "**🝳 ⦙   تم تغيير الصورة بنجاح ✅**"                )
+                await edit_or_reply(                    catevent, "**☣ ⦙   تم تغيير الصورة بنجاح ✅**"                )
     try:
         os.remove(photo)
     except Exception as e:
@@ -1220,7 +1220,7 @@ async def _(event):
 
 
 
-@iqthon.on(admin_cmd(pattern="وضع معرف(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern="وضع معرف(?: |$)(.*)"))
 async def update_username(username):
     newusername = username.pattern_match.group(1)
     try:
@@ -1229,8 +1229,8 @@ async def update_username(username):
     except UsernameOccupiedError:
         await edit_or_reply(event, USERNAME_TAKEN)
     except Exception as e:
-        await edit_or_reply(event, f"**🝳 ⦙  خطأ  ⚠️ :**\n`{str(e)}`")
-@iqthon.on(admin_cmd(pattern=r"شوت ?(.*)", outgoing=True))
+        await edit_or_reply(event, f"**☣ ⦙  خطأ  ⚠️ :**\n`{str(e)}`")
+@Ve_m1.on(admin_cmd(pattern=r"شوت ?(.*)", outgoing=True))
 async def shout(args):
     if args.fwd_from:
         return
@@ -1253,7 +1253,7 @@ if 1 == 1:
     name = "Profile Photos"
     client = borg
 
-    @iqthon.on(admin_cmd(pattern="الصور ?(.*)"))
+    @Ve_m1.on(admin_cmd(pattern="الصور ?(.*)"))
     async def potocmd(event):
         id = "".join(event.raw_text.split(maxsplit=2)[1:])
         user = await event.get_reply_message()
@@ -1283,14 +1283,14 @@ if 1 == 1:
             else:
                 await eor(event, "ليس لديه صور 🙄")
                 return
-@iqthon.on(admin_cmd(pattern="معرفاتي(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern="معرفاتي(?: |$)(.*)"))
 async def _(event):
     result = await event.client(GetAdminedPublicChannelsRequest())
-    output_str = "**🝳 ⦙  جميع القنوات والمجموعات التي قمت بإنشائها  💠  :**\n"
-    output_str += "".join(f"🝳 ⦙    - {channel_obj.title} @{channel_obj.username} \n"
+    output_str = "**☣ ⦙  جميع القنوات والمجموعات التي قمت بإنشائها  💠  :**\n"
+    output_str += "".join(f"☣ ⦙    - {channel_obj.title} @{channel_obj.username} \n"
         for channel_obj in result.chats)
     await edit_or_reply(event, output_str)
-@iqthon.on(admin_cmd(pattern="ملكيه ([\s\S]*)"))
+@Ve_m1.on(admin_cmd(pattern="ملكيه ([\s\S]*)"))
 async def _(event):
     user_name = event.pattern_match.group(1)
     try:
@@ -1299,12 +1299,12 @@ async def _(event):
         await event.client(
             functions.channels.EditCreatorRequest(                channel=event.chat_id, user_id=user_name, password=my_srp_password            )        )
     except Exception as e:
-        await event.edit(f"**🝳 ⦙  حـدث خـطأ ✕ :**\n`{str(e)}`")
+        await event.edit(f"**☣ ⦙  حـدث خـطأ ✕ :**\n`{str(e)}`")
     else:
-        await event.edit("**🝳 ⦙  تم نقل ملكيه ✓**")
+        await event.edit("**☣ ⦙  تم نقل ملكيه ✓**")
 
 
-@iqthon.on(admin_cmd(pattern=f"{plagiarism}(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern=f"{plagiarism}(?: |$)(.*)"))
 async def _(event):
     replied_user, error_i_a = await get_user_from_event(event)
     if replied_user is None:
@@ -1344,13 +1344,13 @@ async def autobio_loop():
         bio = f"{EMOJI_TELETHON} {DEFAULTUSERBIO}  • {FONT1}"
         LOGS.info(bio)
         try:
-            await iqthon(functions.account.UpdateProfileRequest(about=bio))
+            await Ve_m1(functions.account.UpdateProfileRequest(about=bio))
         except FloodWaitError as ex:
             LOGS.warning(str(ex))
             await asyncio.sleep(ex.seconds)
         await asyncio.sleep(Config.CHANGE_TIME)
         AUTOBIOSTART = gvarstatus(f"{OR_AUTOBIO}") == "true"
-@iqthon.on(admin_cmd(pattern=f"{unplagiarism}(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern=f"{unplagiarism}(?: |$)(.*)"))
 async def _(event):
     name = f"{DEFAULTUSER}"
     blank = ""
@@ -1360,9 +1360,9 @@ async def _(event):
     await event.client(functions.account.UpdateProfileRequest(about=bio))
     await event.client(functions.account.UpdateProfileRequest(first_name=name))
     await event.client(functions.account.UpdateProfileRequest(last_name=blank))
-    await edit_delete(event, "**🝳 ⦙  تمّـت إعـادة حسـابك بنجـاح ✓**")
+    await edit_delete(event, "**☣ ⦙  تمّـت إعـادة حسـابك بنجـاح ✓**")
     if BOTLOG:
-        await event.client.send_message(            BOTLOG_CHATID, f"🝳 ⦙   **الأعـادة ♲ :**\n**🝳 ⦙   تـم إعـادة ضبـط حسـابك إلـى وضعـه الطبيـعي بـنجاح ✓**"        )
+        await event.client.send_message(            BOTLOG_CHATID, f"☣ ⦙   **الأعـادة ♲ :**\n**☣ ⦙   تـم إعـادة ضبـط حسـابك إلـى وضعـه الطبيـعي بـنجاح ✓**"        )
 
 
 async def fetch_info(replied_user, event):
@@ -1412,13 +1412,13 @@ async def autoname_loop():
         name = f"{EMOJI_TELETHON} {FONT1} • "
         LOGS.info(name)
         try:
-            await iqthon(functions.account.UpdateProfileRequest(first_name=name))
+            await Ve_m1(functions.account.UpdateProfileRequest(first_name=name))
         except FloodWaitError as ex:
             LOGS.warning(str(ex))
             await asyncio.sleep(ex.seconds)
         await asyncio.sleep(Config.CHANGE_TIME)
         AUTONAMESTART = gvarstatus(f"{OR_NAMEAUTO}") == "true"
-@iqthon.on(admin_cmd(pattern="كشف(?:\s|$)([\s\S]*)"))
+@Ve_m1.on(admin_cmd(pattern="كشف(?:\s|$)([\s\S]*)"))
 async def _(event):
     replied_user, error_i_a = await get_user_from_event(event)
     if not replied_user:
@@ -1471,7 +1471,7 @@ async def _(event):
         sw,
         cas    )
     await edit_or_reply(catevent, caption)
-@iqthon.on(admin_cmd(pattern=f"{idee}(?:\s|$)([\s\S]*)"))
+@Ve_m1.on(admin_cmd(pattern=f"{idee}(?:\s|$)([\s\S]*)"))
 async def who(event):
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
@@ -1501,7 +1501,7 @@ async def who(event):
         await cat.edit(caption, parse_mode="html")
 FONT_FILE_TO_USE = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 TELEGRAPH_MEDIA_LINKS = [    "https://telegra.ph/file/e354ce72d5cc6a1d27c4d.jpg",    "https://telegra.ph/file/8f9ff3d743e6707a61489.jpg",    "https://telegra.ph/file/bfc97f4abc4bec6fe860d.jpg",    "https://telegra.ph/file/5ef0f060023600ec08c19.jpg",    "https://telegra.ph/file/a448465a3a8a251170f76.jpg",    "https://telegra.ph/file/eb0ac1557668a98a38cb6.jpg",    "https://telegra.ph/file/fdb3691a17a2c91fbe76c.jpg",    "https://telegra.ph/file/ccdf69ebf6cb85c52a25b.jpg",    "https://telegra.ph/file/2adffc55ac0c9733ecc7f.jpg",    "https://telegra.ph/file/faca3b435da33f2f156f1.jpg",    "https://telegra.ph/file/93d0a48c31e16f036f0e8.jpg",    "https://telegra.ph/file/9ed89dc742b172a779312.jpg",    "https://telegra.ph/file/0b4c19a19fb834d922d66.jpg",    "https://telegra.ph/file/a95a0deb86f642129b067.jpg",    "https://telegra.ph/file/c4c3d8b5cfc3cc5040833.jpg",    "https://telegra.ph/file/1e1a1b52b9a313e066a04.jpg",    "https://telegra.ph/file/a582950a8a259efdcbbc0.jpg",    "https://telegra.ph/file/9c3a784d45790b193ca36.jpg",    "https://telegra.ph/file/6aa74b17ae4e7dc46116f.jpg",    "https://telegra.ph/file/e63cf624d1b68a5c819b6.jpg",    "https://telegra.ph/file/7e420ad5995952ba1c262.jpg",    "https://telegra.ph/file/c7a4dc3d2a9a422c19723.jpg",    "https://telegra.ph/file/163c7eba56fd2e8c266e4.jpg",    "https://telegra.ph/file/5c87b63ae326b5c3cd713.jpg",    "https://telegra.ph/file/344ca22b35868c0a7661d.jpg",    "https://telegra.ph/file/a0ef3e56f558f04a876aa.jpg",    "https://telegra.ph/file/217b997ad9b5af8b269d0.jpg",    "https://telegra.ph/file/b3595f99b221c56a5679b.jpg",    "https://telegra.ph/file/aba7f4b4485c5aae53c52.jpg",    "https://telegra.ph/file/209ca51dba6c0f1fba85f.jpg",    "https://telegra.ph/file/2a0505ee2630bd6d7acca.jpg",    "https://telegra.ph/file/d193d4191012f4aafd4d2.jpg",    "https://telegra.ph/file/47e2d151984bd54a5d947.jpg",    "https://telegra.ph/file/2a6c735b47db947b44599.jpg",    "https://telegra.ph/file/7567774412fb76ceba95c.jpg",    "https://telegra.ph/file/6dd8b0edec92b24985e13.jpg",    "https://telegra.ph/file/dcf5e16cc344f1c030469.jpg",    "https://telegra.ph/file/0718be0bd52a2eb7e36aa.jpg",    "https://telegra.ph/file/0d7fcb82603b5db683890.jpg",    "https://telegra.ph/file/44595caa95717f4db4788.jpg",    "https://telegra.ph/file/f3a063d884d0dcde437e3.jpg",    "https://telegra.ph/file/733425275da19cbed0822.jpg",    "https://telegra.ph/file/aff5223e1aa29f212a46a.jpg",    "https://telegra.ph/file/45ccfa3ef878bea9cfc02.jpg",    "https://telegra.ph/file/a38aa50d009835177ac16.jpg",    "https://telegra.ph/file/53e25b1b06f411ec051f0.jpg",    "https://telegra.ph/file/96e801400487d0a120715.jpg",    "https://telegra.ph/file/6ae8e799f2acc837e27eb.jpg",    "https://telegra.ph/file/265ff1cebbb7042bfb5a7.jpg",    "https://telegra.ph/file/4c8c9cd0751eab99600c9.jpg",    "https://telegra.ph/file/1c6a5cd6d82f92c646c0f.jpg",    "https://telegra.ph/file/2c1056c91c8f37fea838a.jpg",    "https://telegra.ph/file/f140c121d03dfcaf4e951.jpg",    "https://telegra.ph/file/39f7b5d1d7a3487f6ba69.jpg",]
-@iqthon.on(admin_cmd(pattern="رابطه(?:\s|$)([\s\S]*)"))
+@Ve_m1.on(admin_cmd(pattern="رابطه(?:\s|$)([\s\S]*)"))
 async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
@@ -1512,7 +1512,7 @@ async def permalink(mention):
     await edit_or_reply(mention, f"⨳ | [{tag}](tg://user?id={user.id})")
 
 
-@iqthon.on(admin_cmd(pattern="محادثة وقتية"))
+@Ve_m1.on(admin_cmd(pattern="محادثة وقتية"))
 async def _(event):
     ison = getGrChAuto()
     if event.is_group or event.is_channel:
@@ -1524,7 +1524,7 @@ async def _(event):
         await GrChiq_loop()
     else:
         return await edit_delete(event, "**يمكنك استعمال  الوقتية في الكروب او في القناة فقط**")
-@iqthon.on(admin_cmd(pattern="اسمه(?:\s|$)([\s\S]*)"))
+@Ve_m1.on(admin_cmd(pattern="اسمه(?:\s|$)([\s\S]*)"))
 async def permalink(mention):
     user, custom = await get_user_from_event(mention)
     if not user:
@@ -1534,7 +1534,7 @@ async def permalink(mention):
     ll5 = user.first_name.replace("\u2060", "") if user.first_name else (" ")
     kno = user.last_name.replace("\u2060", "") if user.last_name else (" ")
     await edit_or_reply(mention, f"⨳  {ll5} {kno}")  
-@iqthon.on(admin_cmd(pattern="صورته(?:\s|$)([\s\S]*)"))
+@Ve_m1.on(admin_cmd(pattern="صورته(?:\s|$)([\s\S]*)"))
 async def potocmd(event):
     uid = "".join(event.raw_text.split(maxsplit=1)[1:])
     user = await event.get_reply_message()
@@ -1548,7 +1548,7 @@ async def potocmd(event):
     if uid.strip() == "":
         uid = 1
         if int(uid) > (len(photos)):
-            return await edit_delete(                event, "**🝳 ⦙   لم يتم العثور على صورة لهذا  الشخص 🏞**"            )
+            return await edit_delete(                event, "**☣ ⦙   لم يتم العثور على صورة لهذا  الشخص 🏞**"            )
         send_photos = await event.client.download_media(photos[uid - 1])
         await event.client.send_file(event.chat_id, send_photos)
     elif uid.strip() == "جميعها":
@@ -1562,34 +1562,34 @@ async def potocmd(event):
                     photo = await event.client.download_profile_photo(event.input_chat)
                 await event.client.send_file(event.chat_id, photo)
             except Exception:
-                return await edit_delete(event, "**🝳 ⦙   هذا المستخدم ليس لديه صور لتظهر لك  🙅🏼  **")
+                return await edit_delete(event, "**☣ ⦙   هذا المستخدم ليس لديه صور لتظهر لك  🙅🏼  **")
     else:
         try:
             uid = int(uid)
             if uid <= 0:
-                await edit_or_reply(                    event, "**🝳 ⦙   الرقم غير صحيح - اختر رقم صوره موجود فعليا ⁉️**"                )
+                await edit_or_reply(                    event, "**☣ ⦙   الرقم غير صحيح - اختر رقم صوره موجود فعليا ⁉️**"                )
                 return
         except BaseException:
-            await edit_or_reply(event, "**🝳 ⦙   هناك خطا  ⁉️**")
+            await edit_or_reply(event, "**☣ ⦙   هناك خطا  ⁉️**")
             return
         if int(uid) > (len(photos)):
-            return await edit_delere(                event, "**🝳 ⦙   لم يتم العثور على صورة لهذا  الشخص 🏞**"            )
+            return await edit_delere(                event, "**☣ ⦙   لم يتم العثور على صورة لهذا  الشخص 🏞**"            )
 
         send_photos = await event.client.download_media(photos[uid - 1])
         await event.client.send_file(event.chat_id, send_photos)
     await event.delete()  
-@iqthon.on(admin_cmd(pattern=f"{OR_FOTOAUTO}(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern=f"{OR_FOTOAUTO}(?: |$)(.*)"))
 async def _(event):
     downloader = SmartDL(digitalpfp, digitalpic_path, progress_bar=False)
     downloader.start(blocking=False)
     while not downloader.isFinished():
         pass
     if gvarstatus(f"{OR_FOTOAUTO}") is not None and gvarstatus(f"{OR_FOTOAUTO}") == "true":
-        return await edit_delete(event, f"**🝳 ⦙  صوره وقتية مفعّلـة بالفعـل !**")
+        return await edit_delete(event, f"**☣ ⦙  صوره وقتية مفعّلـة بالفعـل !**")
     addgvar(f"{OR_FOTOAUTO}", True)
-    await edit_delete(event, f"**🝳 ⦙  تـمّ بـدأ الصـورة الديجيتـال بواسطـة المستخـدم ✓**")
+    await edit_delete(event, f"**☣ ⦙  تـمّ بـدأ الصـورة الديجيتـال بواسطـة المستخـدم ✓**")
     await digitalpicloop()
-@iqthon.on(admin_cmd(pattern="الملفات ?(.*)"))
+@Ve_m1.on(admin_cmd(pattern="الملفات ?(.*)"))
 async def _(e):
     files = e.pattern_match.group(1)
     if not files:
@@ -1686,7 +1686,7 @@ async def _(e):
             out_file.name = "output.txt"
             await e.reply(                f"`{e.text}`", file=out_file, thumb=None ) 
         await e.delete()
-@iqthon.on(admin_cmd(pattern="كول (.*)"))
+@Ve_m1.on(admin_cmd(pattern="كول (.*)"))
 async def _(event):
     bxt = Config.TG_BOT_USERNAME
     try:
@@ -1712,7 +1712,7 @@ def text_set(text):
     return lines[:25]
     
 
-@iqthon.on(admin_cmd(pattern="كتابه ?(.*)"))
+@Ve_m1.on(admin_cmd(pattern="كتابه ?(.*)"))
 async def writer(e):
     if e.reply_to:
         reply = await e.get_reply_message()
@@ -1730,12 +1730,12 @@ async def writer(e):
     for line in lines:
         draw.text((x, y), line, fill=(1, 22, 55), font=font)
         y = y + line_height - 5
-    file = "iqthon_Write.jpg"
+    file = "Ve_m1_Write.jpg"
     img.save(file)
     await e.reply(file=file)
     os.remove(file)
     await e.delete()
-@iqthon.on(admin_cmd(pattern="عد الردود ?(.*)"))
+@Ve_m1.on(admin_cmd(pattern="عد الردود ?(.*)"))
 async def _(event):
     await eor(event, "جاري العد ...")
     count = -1
@@ -1748,7 +1748,7 @@ async def _(event):
         count += 1
     await eor(event, f"عدد الردود على هذا الرساله : {count}")
 
-@iqthon.on(admin_cmd(pattern="زاجل ?(.*)"))
+@Ve_m1.on(admin_cmd(pattern="زاجل ?(.*)"))
 async def pmto(event):
     a = event.pattern_match.group(1)
     b = a.split(" ")
@@ -1767,22 +1767,22 @@ async def pmto(event):
         await event.edit("تم الارسال !🤗")
     except BaseException:
         await event.edit("هناك خطا .")
-@iqthon.on(admin_cmd(pattern=f"{OR_NAMEAUTO}(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern=f"{OR_NAMEAUTO}(?: |$)(.*)"))
 async def _(event):
     if gvarstatus(f"{OR_NAMEAUTO}") is not None and gvarstatus(f"{OR_NAMEAUTO}") == "true":
-        return await edit_delete(event, f"**🝳 ⦙  الإسـم الوقتـي قيـد التشغيـل بالفعـل !**")
+        return await edit_delete(event, f"**☣ ⦙  الإسـم الوقتـي قيـد التشغيـل بالفعـل !**")
     addgvar(f"{OR_NAMEAUTO}", True)
-    await edit_delete(event, "**🝳 ⦙  تـمّ بـدأ الإسـم الوقتـي بواسطـة المستخـدم ✓**")
+    await edit_delete(event, "**☣ ⦙  تـمّ بـدأ الإسـم الوقتـي بواسطـة المستخـدم ✓**")
     await autoname_loop()
-@iqthon.on(admin_cmd(pattern=f"{OR_AUTOBIO}(?: |$)(.*)"))
+@Ve_m1.on(admin_cmd(pattern=f"{OR_AUTOBIO}(?: |$)(.*)"))
 async def _(event):
-    "🝳 ⦙  يحـدّث البايـو مع الوقـت 💡"
+    "☣ ⦙  يحـدّث البايـو مع الوقـت 💡"
     if gvarstatus(f"{OR_AUTOBIO}") is not None and gvarstatus(f"{OR_AUTOBIO}") == "true":
-        return await edit_delete(event, f"**🝳 ⦙  البايـو الوقتـي قيـد التشغيـل بالفعـل !**")
+        return await edit_delete(event, f"**☣ ⦙  البايـو الوقتـي قيـد التشغيـل بالفعـل !**")
     addgvar(f"{OR_AUTOBIO}", True)
-    await edit_delete(event, "**🝳 ⦙  تـمّ بـدأ البايـو الوقتـي بواسطـة المستخـدم ✓**")
+    await edit_delete(event, "**☣ ⦙  تـمّ بـدأ البايـو الوقتـي بواسطـة المستخـدم ✓**")
     await autobio_loop()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص51$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص51$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1790,7 +1790,7 @@ async def iqvois(vois):
     if iqvois51:
         await vois.client.send_file(vois.chat_id, iqvois51 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص52$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص52$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1798,7 +1798,7 @@ async def iqvois(vois):
     if iqvois52:
         await vois.client.send_file(vois.chat_id, iqvois52 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص55$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص55$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1806,7 +1806,7 @@ async def iqvois(vois):
     if iqvois55:
         await vois.client.send_file(vois.chat_id, iqvois55 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص54$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص54$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1814,7 +1814,7 @@ async def iqvois(vois):
     if iqvois54:
         await vois.client.send_file(vois.chat_id, iqvois54 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص56$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص56$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1822,7 +1822,7 @@ async def iqvois(vois):
     if iqvois56:
         await vois.client.send_file(vois.chat_id, iqvois56 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص53$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص53$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1830,7 +1830,7 @@ async def iqvois(vois):
     if iqvois53:
         await vois.client.send_file(vois.chat_id, iqvois53 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص57$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص57$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1838,7 +1838,7 @@ async def iqvois(vois):
     if iqvois57:
         await vois.client.send_file(vois.chat_id, iqvois57 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص58$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص58$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1846,7 +1846,7 @@ async def iqvois(vois):
     if iqvois58:
         await vois.client.send_file(vois.chat_id, iqvois58 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص59$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص59$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1855,7 +1855,7 @@ async def iqvois(vois):
         await vois.client.send_file(vois.chat_id, iqvois59 , reply_to=Ti)
         await vois.delete()
 
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص60$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص60$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1863,7 +1863,7 @@ async def iqvois(vois):
     if iqvois60:
         await vois.client.send_file(vois.chat_id, iqvois60 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص61$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص61$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1871,7 +1871,7 @@ async def iqvois(vois):
     if iqvois61:
         await vois.client.send_file(vois.chat_id, iqvois61 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص62$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص62$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1879,7 +1879,7 @@ async def iqvois(vois):
     if iqvois62:
         await vois.client.send_file(vois.chat_id, iqvois62 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص63$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص63$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1887,7 +1887,7 @@ async def iqvois(vois):
     if iqvois63:
         await vois.client.send_file(vois.chat_id, iqvois63 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص64$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص64$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1895,7 +1895,7 @@ async def iqvois(vois):
     if iqvois64:
         await vois.client.send_file(vois.chat_id, iqvois64 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(events.NewMessage(outgoing=True, pattern="^.ارسل ?(.*)"))
+@Ve_m1.on(events.NewMessage(outgoing=True, pattern="^.ارسل ?(.*)"))
 
 async def remoteaccess(event):
 
@@ -1923,7 +1923,7 @@ async def remoteaccess(event):
         await event.edit("تم ارسال الرساله الى الرابط الذي وضعتة")
     except BaseException:
         await event.edit("** عذرا هذا ليست مجموعة **")
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص65$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص65$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1931,7 +1931,7 @@ async def iqvois(vois):
     if iqvois65:
         await vois.client.send_file(vois.chat_id, iqvois65 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص66$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص66$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1939,7 +1939,7 @@ async def iqvois(vois):
     if iqvois66:
         await vois.client.send_file(vois.chat_id, iqvois66 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص67$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص67$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1959,16 +1959,16 @@ async def GrChiq_loop():
                 HM = HM.replace(normal, namefont)
         name = f"{AUTOGRCH} {HM}"
         try:
-            await iqthon(functions.channels.EditTitleRequest(channel=await iqthon.get_entity(int(ag)), title=name))
+            await Ve_m1(functions.channels.EditTitleRequest(channel=await Ve_m1.get_entity(int(ag)), title=name))
         except ChatAdminRequiredError:
-            await iqthon.tgbot.send_message(BOTLOG_CHATID, "**يجب ان يكون لديك صلاحية تغيير اسم الكروب لتفعيل وقتي الكروب•**")
+            await Ve_m1.tgbot.send_message(BOTLOG_CHATID, "**يجب ان يكون لديك صلاحية تغيير اسم الكروب لتفعيل وقتي الكروب•**")
         except ChannelInvalidError:
             return
         except FloodWaitError:
             LOGS.warning("FloodWaitError! خطأ حظر مؤقت من التيليجرام")
         await asyncio.sleep(Config.CHANGE_TIME)
         AUTONAMESTAR = getGrChAuto() != None
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص68$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص68$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1976,7 +1976,7 @@ async def iqvois(vois):
     if iqvois68:
         await vois.client.send_file(vois.chat_id, iqvois68 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص69$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص69$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1984,7 +1984,7 @@ async def iqvois(vois):
     if iqvois69:
         await vois.client.send_file(vois.chat_id, iqvois69 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص70$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص70$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -1993,7 +1993,7 @@ async def iqvois(vois):
         await vois.client.send_file(vois.chat_id, iqvois70 , reply_to=Ti)
         await vois.delete()
 
-@iqthon.iq_cmd(pattern="اشتراك")
+@Ve_m1.iq_cmd(pattern="اشتراك")
 async def reda(event):
     ty = event.text
     ty = ty.replace(".اشتراك", "")
@@ -2018,7 +2018,7 @@ async def reda(event):
             await edit_or_reply(event, "**تم تفعيل الاشتراك الاجباري للخاص ✅ **")
     if ty not in ["خاص", "كروب"]:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري خاص او كروب **")
-@iqthon.iq_cmd(pattern="تعطيل")
+@Ve_m1.iq_cmd(pattern="تعطيل")
 async def reda (event):
     cc = event.text.replace(".تعطيل", "")
     cc = cc.replace(" ", "")
@@ -2039,7 +2039,7 @@ async def reda (event):
     if cc not in ["خاص", "كروب"]:
         return await edit_delete(event, "**قم بكتابة نوع الاشتراك الاجباري لإلغائه ✅ **")
 
-@iqthon.iq_cmd(incoming=True)
+@Ve_m1.iq_cmd(incoming=True)
 async def reda(event):
     if gvarstatus ("subprivate"):
         if event.is_private:
@@ -2049,30 +2049,30 @@ async def reda(event):
                 tok = Config.TG_BOT_TOKEN
                 ch = gvarstatus ("pchan")
                 if not ch:
-                    return await iqthon .tgbot.send_message(BOTLOG_CHATID, "** انت لم تضع قناة الاشتراك الاجباري قم بوضعها**")
+                    return await Ve_m1 .tgbot.send_message(BOTLOG_CHATID, "** انت لم تضع قناة الاشتراك الاجباري قم بوضعها**")
                 try:
                     ch = int(ch)
                 except BaseException as r:
-                    return await iqthon .tgbot.send_message(BOTLOG_CHATID, f"**حدث خطأ \n{r}**")
+                    return await Ve_m1 .tgbot.send_message(BOTLOG_CHATID, f"**حدث خطأ \n{r}**")
                 url = f"https://api.telegram.org/bot{tok}/getchatmember?chat_id={ch}&user_id={idd}"
                 req = requests.get(url)
                 reqt = req.text
                 if "chat not found" in reqt:
-                    mb = await iqthon .tgbot.get_me()
+                    mb = await Ve_m1 .tgbot.get_me()
                     mb = mb.username
-                    await iqthon .tgbot.send_message(BOTLOG_CHATID, f"**البوت الخاص بك @{mb} ليس في قناة الاشتراك الاجباري**")
+                    await Ve_m1 .tgbot.send_message(BOTLOG_CHATID, f"**البوت الخاص بك @{mb} ليس في قناة الاشتراك الاجباري**")
                     return
                 if "bot was kicked" in reqt:
-                    mb = await iqthon .tgbot.get_me()
+                    mb = await Ve_m1 .tgbot.get_me()
                     mb = mb.username
-                    await iqthon .tgbot.send_message(BOTLOG_CHATID, "** البوت الخاص بك @{mb} مطرود من قناة الاشتراك الاجباري اعد اضافته**")
+                    await Ve_m1 .tgbot.send_message(BOTLOG_CHATID, "** البوت الخاص بك @{mb} مطرود من قناة الاشتراك الاجباري اعد اضافته**")
                     return
                 if "not found" in reqt:
                     try:
-                        c = await iqthon .get_entity(ch)
+                        c = await Ve_m1 .get_entity(ch)
                         chn = c.username
                         if c.username == None:
-                            ra = await iqthon .tgbot(ExportChatInviteRequest(ch))
+                            ra = await Ve_m1 .tgbot(ExportChatInviteRequest(ch))
                             chn = ra.link
                         if chn.startswith("https://"):
                             await event.reply(f"**يجب عليك ان تشترك بالقناة أولاً\nقناة الاشتراك : {chn}**", buttons=[(Button.url("اضغط هنا", chn),)],                            )
@@ -2081,13 +2081,13 @@ async def reda(event):
                             await event.reply(f"**للتحدث معي يجب عليك الاشتراك في القناة\n قناة الاشتراك : @{chn} **", buttons=[(Button.url("اضغط هنا", f"https://t.me/{chn}"),)],                            )
                             return await event.delete()
                     except BaseException as er:
-                        await iqthon .tgbot.send_message(BOTLOG_CHATID, f"حدث خطا \n{er}")
+                        await Ve_m1 .tgbot.send_message(BOTLOG_CHATID, f"حدث خطا \n{er}")
                 if "left" in reqt:
                     try:
-                        c = await iqthon .get_entity(ch)
+                        c = await Ve_m1 .get_entity(ch)
                         chn = c.username
                         if c.username == None:
-                            ra = await iqthon .tgbot(ExportChatInviteRequest(ch))
+                            ra = await Ve_m1 .tgbot(ExportChatInviteRequest(ch))
                             chn = ra.link
                         if chn.startswith("https://"):
                             await event.reply(f"**يجب عليك ان تشترك بالقناة أولاً\nقناة الاشتراك : {chn}**", buttons=[(Button.url("اضغط هنا", chn),)],                            )
@@ -2096,15 +2096,15 @@ async def reda(event):
                             await event.reply(f"**للتحدث معي يجب عليك الاشتراك في القناة\n قناة الاشتراك : @{chn} **", buttons=[(Button.url("اضغط هنا", f"https://t.me/{chn}"),)],                            )
                             return await event.message.delete()
                     except BaseException as er:
-                        await iqthon .tgbot.send_message(BOTLOG_CHATID, f"حدث خطا \n{er}")
+                        await Ve_m1 .tgbot.send_message(BOTLOG_CHATID, f"حدث خطا \n{er}")
                 if "error_code" in reqt:
-                    await iqthon .tgbot.send_message(BOTLOG_CHATID, f"**حدث خطأ غير معروف قم باعادة توجيه الرسالة ل @lll5l لحل المشكلة\n{reqt}**")
+                    await Ve_m1 .tgbot.send_message(BOTLOG_CHATID, f"**حدث خطأ غير معروف قم باعادة توجيه الرسالة ل @lll5l لحل المشكلة\n{reqt}**")
                 
                 return
             except BaseException as er:
-                await iqthon .tgbot.send_message(BOTLOG_CHATID, f"** حدث خطا\n{er}**")
+                await Ve_m1 .tgbot.send_message(BOTLOG_CHATID, f"** حدث خطا\n{er}**")
 
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص71$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص71$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2112,7 +2112,7 @@ async def iqvois(vois):
     if iqvois71:
         await vois.client.send_file(vois.chat_id, iqvois71 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص72$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص72$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2120,7 +2120,7 @@ async def iqvois(vois):
     if iqvois72:
         await vois.client.send_file(vois.chat_id, iqvois72 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص73$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص73$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2128,7 +2128,7 @@ async def iqvois(vois):
     if iqvois73:
         await vois.client.send_file(vois.chat_id, iqvois73 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص74$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص74$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2136,7 +2136,7 @@ async def iqvois(vois):
     if iqvois74:
         await vois.client.send_file(vois.chat_id, iqvois74 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص75$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص75$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2144,7 +2144,7 @@ async def iqvois(vois):
     if iqvois75:
         await vois.client.send_file(vois.chat_id, iqvois75 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص76$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص76$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2152,7 +2152,7 @@ async def iqvois(vois):
     if iqvois76:
         await vois.client.send_file(vois.chat_id, iqvois76 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص77$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص77$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2162,7 +2162,7 @@ async def iqvois(vois):
         await vois.delete()
 
 
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص78$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص78$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2170,7 +2170,7 @@ async def iqvois(vois):
     if iqvois78:
         await vois.client.send_file(vois.chat_id, iqvois78 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص79$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص79$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2178,7 +2178,7 @@ async def iqvois(vois):
     if iqvois79:
         await vois.client.send_file(vois.chat_id, iqvois79 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص80$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص80$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2186,7 +2186,7 @@ async def iqvois(vois):
     if iqvois80:
         await vois.client.send_file(vois.chat_id, iqvois80 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص81$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص81$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2194,7 +2194,7 @@ async def iqvois(vois):
     if iqvois81:
         await vois.client.send_file(vois.chat_id, iqvois81 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(pattern="عكس الالوان$", outgoing=True))
+@Ve_m1.on(admin_cmd(pattern="عكس الالوان$", outgoing=True))
 async def memes(mafia):
     reply = await mafia.get_reply_message()
     if not (reply and (reply.media)):
@@ -2261,7 +2261,7 @@ async def memes(mafia):
     for files in (mafiasticker, meme_file):
         if files and os.path.exists(files):
             os.remove(files)
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص82$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص82$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2269,7 +2269,7 @@ async def iqvois(vois):
     if iqvois82:
         await vois.client.send_file(vois.chat_id, iqvois82 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص83$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص83$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2277,7 +2277,7 @@ async def iqvois(vois):
     if iqvois83:
         await vois.client.send_file(vois.chat_id, iqvois83 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص84$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص84$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2285,7 +2285,7 @@ async def iqvois(vois):
     if iqvois84:
         await vois.client.send_file(vois.chat_id, iqvois84 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص85$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص85$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2293,7 +2293,7 @@ async def iqvois(vois):
     if iqvois85:
         await vois.client.send_file(vois.chat_id, iqvois85 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص86$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص86$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2301,7 +2301,7 @@ async def iqvois(vois):
     if iqvois86:
         await vois.client.send_file(vois.chat_id, iqvois86 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص87$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص87$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2309,7 +2309,7 @@ async def iqvois(vois):
     if iqvois87:
         await vois.client.send_file(vois.chat_id, iqvois87 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص88$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص88$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2317,7 +2317,7 @@ async def iqvois(vois):
     if iqvois88:
         await vois.client.send_file(vois.chat_id, iqvois88 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص89$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص89$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2325,7 +2325,7 @@ async def iqvois(vois):
     if iqvois89:
         await vois.client.send_file(vois.chat_id, iqvois89 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص90$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص90$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2333,7 +2333,7 @@ async def iqvois(vois):
     if iqvois90:
         await vois.client.send_file(vois.chat_id, iqvois90 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص91$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص91$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2341,7 +2341,7 @@ async def iqvois(vois):
     if iqvois92:
         await vois.client.send_file(vois.chat_id, iqvois93 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص92$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص92$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2349,28 +2349,28 @@ async def iqvois(vois):
     if iqvois92:
         await vois.client.send_file(vois.chat_id, iqvois92 , reply_to=Ti)
         await vois.delete()
-iqthonyouali = False
-@iqthon.iq_cmd(pattern="تشغيل حفض الوقتية$")
+Ve_m1youali = False
+@Ve_m1.iq_cmd(pattern="تشغيل حفض الوقتية$")
 async def iqalistart(event):
-    global iqthonyouali
-    iqthonyouali = True
+    global Ve_m1youali
+    Ve_m1youali = True
     await edit_or_reply(event, "تم بنجاح تفعيل حفظ  الذاتية من الان")
-@iqthon.iq_cmd(pattern="ايقاف حفض الوقتية$")
+@Ve_m1.iq_cmd(pattern="ايقاف حفض الوقتية$")
 async def iqalistop(event):
-    global iqthonyouali
-    iqthonyouali = False
+    global Ve_m1youali
+    Ve_m1youali = False
     await edit_or_reply(event, "تم بنجاح تعطيل حفظ  الذاتية من الان")
-@iqthon.on(    events.NewMessage(        func=lambda e: e.is_private and (e.photo or e.video) and e.media_unread    ))
+@Ve_m1.on(    events.NewMessage(        func=lambda e: e.is_private and (e.photo or e.video) and e.media_unread    ))
 async def iqali(event):
-    global iqthonyouali
-    if iqthonyouali:
+    global Ve_m1youali
+    if Ve_m1youali:
         sender = await event.get_sender()
         username = sender.username
         user_id = sender.id
         result = await event.download_media()
         caption = (            f" ذاتية التدمير وصلت لك !\n: المرسل @{username}\nالايدي : {user_id}"        )
-        await iqthon.send_file("me", result, caption=caption)
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص93$"))
+        await Ve_m1.send_file("me", result, caption=caption)
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص93$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2378,7 +2378,7 @@ async def iqvois(vois):
     if iqvois93:
         await vois.client.send_file(vois.chat_id, iqvois93 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص94$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص94$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2386,7 +2386,7 @@ async def iqvois(vois):
     if iqvois94:
         await vois.client.send_file(vois.chat_id, iqvois94 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="ص95$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="ص95$"))
 async def iqvois(vois):
     if vois.fwd_from:
         return
@@ -2394,7 +2394,7 @@ async def iqvois(vois):
     if iqvois95:
         await vois.client.send_file(vois.chat_id, iqvois95 , reply_to=Ti)
         await vois.delete()
-@iqthon.on(admin_cmd(outgoing=True, pattern="فلتر احمر$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="فلتر احمر$"))
 async def memes(mafia):
     reply = await mafia.get_reply_message()
     if not (reply and (reply.media)):
@@ -2461,9 +2461,9 @@ async def memes(mafia):
     for files in (mafiasticker, meme_file):
         if files and os.path.exists(files):
             os.remove(files)
-@iqthon.iq_cmd(pattern="كروباتي$")
+@Ve_m1.iq_cmd(pattern="كروباتي$")
 async def gros(event):
-    result = await iqthon(functions.channels.GetGroupsForDiscussionRequest())
+    result = await Ve_m1(functions.channels.GetGroupsForDiscussionRequest())
     listiq = []
     for iqrusiq in result.chats:
         username = (            "  | @" + iqrusiq.username
@@ -2473,10 +2473,10 @@ async def gros(event):
         print(kno)
         listiq.append(kno)
     if listiq:
-        await iqthon.send_message("me", "\n".join(listiq))
-@iqthon.iq_cmd(pattern="الحاظرهم$")
+        await Ve_m1.send_message("me", "\n".join(listiq))
+@Ve_m1.iq_cmd(pattern="الحاظرهم$")
 async def bans(event):
-    result = await iqthon(functions.contacts.GetBlockedRequest(offset=0, limit=1000000))
+    result = await Ve_m1(functions.contacts.GetBlockedRequest(offset=0, limit=1000000))
     listiq = []
     for user in result.users:
         if not user.bot:
@@ -2485,19 +2485,19 @@ async def bans(event):
             print(kno)
             listiq.append(kno)
     if listiq:
-        await iqthon.send_message("me", "\n".join(listiq))
-@iqthon.iq_cmd(pattern="قيد (.*)")
+        await Ve_m1.send_message("me", "\n".join(listiq))
+@Ve_m1.iq_cmd(pattern="قيد (.*)")
 async def kade(event):
     exe = event.text[5:]
     try:
-        result = await iqthon(            functions.messages.ToggleNoForwardsRequest(peer=exe, enabled=True)        )
+        result = await Ve_m1(            functions.messages.ToggleNoForwardsRequest(peer=exe, enabled=True)        )
         await event.edit("تم بنجاح تفعيل وضع تقييد المحتوى")
     except errors.ChatNotModifiedError as e:
         print(e)  
-@iqthon.iq_cmd(pattern="نوعه (.*)")
+@Ve_m1.iq_cmd(pattern="نوعه (.*)")
 async def noah(event):
     exe = event.text[5:]
-    x = await iqthon.get_entity(exe)
+    x = await Ve_m1.get_entity(exe)
     if hasattr(x, "megagroup") and x.megagroup:
         await event.edit("نوع المعرف : كروب")
     elif hasattr(x, "megagroup") and not x.megagroup:
@@ -2506,15 +2506,15 @@ async def noah(event):
         await event.edit("نوع المعرف : بوت")
     else:
         await event.edit("نوع المعرف : لحساب")
-@iqthon.iq_cmd(pattern="احذف (.*)")
+@Ve_m1.iq_cmd(pattern="احذف (.*)")
 async def delet(event):
     exe = event.text[5:]
-    await iqthon.get_dialogs()
+    await Ve_m1.get_dialogs()
     chat = exe
-    await iqthon.delete_dialog(chat, revoke=True)
+    await Ve_m1.delete_dialog(chat, revoke=True)
     await event.edit("- تم بنجاح حذف الدردشة مع المستخدم بنجاح")
 
-@iqthon.on(admin_cmd(outgoing=True, pattern="يمين الصوره$"))
+@Ve_m1.on(admin_cmd(outgoing=True, pattern="يمين الصوره$"))
 async def memes(mafia):
     reply = await mafia.get_reply_message()
     if not (reply and (reply.media)):
@@ -2582,7 +2582,7 @@ async def memes(mafia):
         if files and os.path.exists(files):
             os.remove(files)
 
-@iqthon.on(admin_cmd(pattern="ايقاف ([\s\S]*)"))
+@Ve_m1.on(admin_cmd(pattern="ايقاف ([\s\S]*)"))
 async def _(event):  # sourcery no-metrics
     input_str = event.pattern_match.group(1)
     if input_str == f"{OR_FOTOAUTO}":
@@ -2590,20 +2590,20 @@ async def _(event):  # sourcery no-metrics
             delgvar(f"{OR_FOTOAUTO}")
             await event.client(
                 functions.photos.DeletePhotosRequest(                    await event.client.get_profile_photos("me", limit=1)                )            )
-            return await edit_delete(event, "**🝳 ⦙  تم إيقـاف  صوره وقتية الآن ✓**")
-        return await edit_delete(event, "**🝳 ⦙  لم يتـم تفعيـل صوره وقتية ✕**")
+            return await edit_delete(event, "**☣ ⦙  تم إيقـاف  صوره وقتية الآن ✓**")
+        return await edit_delete(event, "**☣ ⦙  لم يتـم تفعيـل صوره وقتية ✕**")
     if input_str == f"{OR_NAMEAUTO}":
         if gvarstatus(f"{OR_NAMEAUTO}") is not None and gvarstatus(f"{OR_NAMEAUTO}") == "true":
             delgvar(f"{OR_NAMEAUTO}")
             await event.client(                functions.account.UpdateProfileRequest(first_name=DEFAULTUSER)            )
-            return await edit_delete(event, "**🝳 ⦙  تم إيقـاف الإسـم الوقتـي الآن ✓**")
-        return await edit_delete(event, "**🝳 ⦙  لم يتـم تفعيـل الإسـم الوقتـي ✕**")
+            return await edit_delete(event, "**☣ ⦙  تم إيقـاف الإسـم الوقتـي الآن ✓**")
+        return await edit_delete(event, "**☣ ⦙  لم يتـم تفعيـل الإسـم الوقتـي ✕**")
     if input_str == f"{OR_AUTOBIO}":
         if gvarstatus(f"{OR_AUTOBIO}") is not None and gvarstatus(f"{OR_AUTOBIO}") == "true":
             delgvar(f"{OR_AUTOBIO}")
             await event.client(                functions.account.UpdateProfileRequest(about=DEFAULTUSERBIO)            )
-            return await edit_delete(event, "**🝳 ⦙  تم إيقـاف البايـو التلقائـي الآن ✓**")
-        return await edit_delete(event, "**🝳 ⦙  لم يتـم تفعيـل البايـو التلقائـي ✕**")
+            return await edit_delete(event, "**☣ ⦙  تم إيقـاف البايـو التلقائـي الآن ✓**")
+        return await edit_delete(event, "**☣ ⦙  لم يتـم تفعيـل البايـو التلقائـي ✕**")
     if input_str == "محادثة وقتية":
         if getGrChAuto() is not None:
             deletAutoChGR()
@@ -2611,8 +2611,8 @@ async def _(event):  # sourcery no-metrics
         return await edit_delete(event, "** لم يتم تفعيل المحادثة الوقتية بالأصل **")
     END_CMDS = [f"{OR_FOTOAUTO}", f"{OR_NAMEAUTO}", f"{OR_AUTOBIO}", "محادثة وقتية"]
     if input_str not in END_CMDS:
-        await edit_delete(            event,            f"🝳 ⦙   {input_str} أمـر الإنهـاء غيـر صالـح، اذڪـر بوضـوح ما يجـب أن أنهـي !",            parse_mode=_format.parse_pre        )
-iqthon.loop.create_task(digitalpicloop())
-iqthon.loop.create_task(autoname_loop())
-iqthon.loop.create_task(autobio_loop())
-iqthon.loop.create_task(GrChiq_loop())        
+        await edit_delete(            event,            f"☣ ⦙   {input_str} أمـر الإنهـاء غيـر صالـح، اذڪـر بوضـوح ما يجـب أن أنهـي !",            parse_mode=_format.parse_pre        )
+Ve_m1.loop.create_task(digitalpicloop())
+Ve_m1.loop.create_task(autoname_loop())
+Ve_m1.loop.create_task(autobio_loop())
+Ve_m1.loop.create_task(GrChiq_loop())        

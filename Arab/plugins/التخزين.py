@@ -11,7 +11,7 @@ from telethon.tl.functions.messages import ImportChatInviteRequest as Get
 from telethon.utils import get_display_name
 from validators.url import url
 
-from Arab import iqthon
+from Arab import Ve_m1
 
 from ..core.logger import logging
 from ..core.managers import edit_delete, edit_or_reply
@@ -90,7 +90,7 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
                 + f"⎈ ⦙ `{spam_message}`",
             )
 
-@iqthon.on(admin_cmd(pattern="بحث صوت(320)?(?: |$)(.*)"))    
+@Ve_m1.on(admin_cmd(pattern="بحث صوت(320)?(?: |$)(.*)"))    
 async def _(event):
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
@@ -152,7 +152,7 @@ async def delete_messages(event, chat, from_message):
         msgs.append(i.id)
     await event.client.delete_messages(chat, msgs)
     await event.client.send_read_acknowledge(chat)
-@iqthon.on(admin_cmd(pattern="بحث فيديو(?: |$)(.*)"))    
+@Ve_m1.on(admin_cmd(pattern="بحث فيديو(?: |$)(.*)"))    
 async def _(event):
     reply_to_id = await reply_id(event)
     reply = await event.get_reply_message()
