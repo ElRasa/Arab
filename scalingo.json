@@ -1,4 +1,4 @@
-{"name": "سورس تليثون العرب سكالينجو","description": "تنصيب سورس تليثون العرب مجانا على منصة سكالينجو","addons": ["scalingo-postgresql"],"keywords": ["userbot","scalingo","iqyhon"],"repository": "https://github.com/iqhelp/iqhelp","stack": "container",
+{"name": "سورس تليثون الرسام سكالينجو","description": "تنصيب سورس تليثون الرسام مجانا على منصة سكالينجو","addons": ["scalingo-postgresql"],"keywords": ["userbot","scalingo","iqyhon"],"repository": "https://github.com/iqhelp/iqhelp","stack": "container",
     "env": {
         "ALIVE_NAME": {"description": "ضع هنا اسم حسابك على التليجرام","required": true,"value":""},
         "APP_ID": {"description": "ضع هنا الايبي ايدي","required": true,"value":""},
